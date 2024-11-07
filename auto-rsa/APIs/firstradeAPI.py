@@ -17,7 +17,7 @@ from helperAPI import (
     maskString,
     printAndDiscord,
     printHoldings,
-    stockOrder
+    StockOrder
 )
 
 
@@ -55,7 +55,7 @@ def firstrade_init(botObj=None, loop=None):
                     if len(account[2]) > 14 and "@" not in account[2]
                     else None
                 ),
-                profile_path="./creds/",
+                profile_path="../../creds/",
             )
             need_code = firstrade.login()
             if need_code:
@@ -109,7 +109,7 @@ def firstrade_holdings(firstrade_o: Brokerage, loop=None):
     printHoldings(firstrade_o, loop)
 
 
-def firstrade_transaction(firstrade_o: Brokerage, orderObj: stockOrder, loop=None):
+def firstrade_transaction(firstrade_o: Brokerage, orderObj: StockOrder, loop=None):
     print()
     print("==============================")
     print("Firstrade")

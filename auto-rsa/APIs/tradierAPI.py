@@ -9,7 +9,7 @@ from time import sleep
 import requests
 from dotenv import load_dotenv
 
-from helperAPI import Brokerage, maskString, printAndDiscord, printHoldings, stockOrder
+from helperAPI import Brokerage, maskString, printAndDiscord, printHoldings, StockOrder
 
 
 def make_request(
@@ -165,7 +165,7 @@ def tradier_holdings(tradier_o: Brokerage, loop=None):
     printHoldings(tradier_o, loop=loop)
 
 
-def tradier_transaction(tradier_o: Brokerage, orderObj: stockOrder, loop=None):
+def tradier_transaction(tradier_o: Brokerage, orderObj: StockOrder, loop=None):
     print()
     print("==============================")
     print("Tradier")

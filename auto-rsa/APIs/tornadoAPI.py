@@ -17,7 +17,7 @@ from helperAPI import (
     killSeleniumDriver,
     printAndDiscord,
     printHoldings,
-    stockOrder
+    StockOrder
 )
 
 load_dotenv()
@@ -202,7 +202,7 @@ def tornado_holdings(Tornado_o: Brokerage, loop=None):
     killSeleniumDriver(Tornado_o)  # Close the browser after processing
 
 
-def tornado_transaction(Tornado_o: Brokerage, orderObj: stockOrder, loop=None):
+def tornado_transaction(Tornado_o: Brokerage, orderObj: StockOrder, loop=None):
     print("\n==============================")
     print("Tornado")
     print("==============================\n")

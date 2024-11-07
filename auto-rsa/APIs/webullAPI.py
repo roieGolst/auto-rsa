@@ -8,13 +8,13 @@ from time import sleep
 from dotenv import load_dotenv
 from webull import webull
 
-from helperAPI import Brokerage, maskString, printAndDiscord, printHoldings, stockOrder
+from helperAPI import Brokerage, maskString, printAndDiscord, printHoldings, StockOrder
 
 MAX_WB_RETRIES = 3  # Number of times to retry logging in if not successful
 MAX_WB_ACCOUNTS = 11  # Different account types
 
 
-def place_order(obj: webull, account: str, orderObj: stockOrder, s: str):
+def place_order(obj: webull, account: str, orderObj: StockOrder, s: str):
     obj.set_account_id(account)
     order = obj.place_order(
         stock=s,
@@ -125,7 +125,7 @@ def webull_holdings(wbo: Brokerage, loop=None):
     printHoldings(wbo, loop=loop)
 
 
-def webull_transaction(wbo: Brokerage, orderObj: stockOrder, loop=None):
+def webull_transaction(wbo: Brokerage, orderObj: StockOrder, loop=None):
     print()
     print("==============================")
     print("Webull")

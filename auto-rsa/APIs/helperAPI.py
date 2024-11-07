@@ -32,7 +32,7 @@ SORT_BROKERS = os.getenv("SORT_BROKERS", "true").lower() != "false"
 task_queue = Queue()
 
 
-class stockOrder:
+class StockOrder:
     def __init__(self):
         self.__action: str = None  # Buy or sell
         self.__amount: float = None  # Amount of shares to buy/sell
@@ -351,7 +351,7 @@ def is_up_to_date(remote, branch):
     up_to_date = False
     is_fork = False
     remote_hash = ""
-    local_commit = git.Repo(".").head.commit.hexsha
+    local_commit = git.Repo("../..").head.commit.hexsha
     try:
         g = git.cmd.Git()
         ls_remote = g.ls_remote(remote, branch)
@@ -393,10 +393,10 @@ def updater():
         return
     print("Starting Git auto update...")
     try:
-        repo = git.Repo(".")
+        repo = git.Repo("../..")
     except git.exc.InvalidGitRepositoryError:
         # If downloaded as zip, repo won't exist, so create it
-        repo = git.Repo.init(".")
+        repo = git.Repo.init("../..")
         repo.create_remote("origin", "https://github.com/NelsonDane/auto-rsa")
         repo.remotes.origin.fetch()
         # Always create main branch
@@ -443,7 +443,7 @@ def check_package_versions():
     # Check if pip packages are up to date
     required_packages = []
     required_repos = []
-    f = open("requirements.txt", "r")
+    f = open("../../requirements.txt", "r")
     for line in f:
         # Not commented pip packages
         if not line.startswith("#") and "==" in line:

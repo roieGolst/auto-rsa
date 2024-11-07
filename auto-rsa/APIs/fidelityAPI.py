@@ -22,7 +22,7 @@ from helperAPI import (
     maskString,
     printAndDiscord,
     printHoldings,
-    stockOrder
+    StockOrder
 )
 
 
@@ -636,7 +636,7 @@ class FidelityAutomation:
 
 
 def fidelity_run(
-    orderObj: stockOrder, command=None, botObj=None, loop=None, FIDELITY_EXTERNAL=None
+    orderObj: StockOrder, command=None, botObj=None, loop=None, FIDELITY_EXTERNAL=None
 ):
     """
     Entry point from main function. Gathers credentials and go through commands for
@@ -709,7 +709,7 @@ def fidelity_init(account: str, name: str, headless=True, botObj=None, loop=None
         account = account.split(":")
         # Create a Fidelity browser object
         fidelity_browser = FidelityAutomation(
-            headless=headless, title=name, profile_path="./creds"
+            headless=headless, title=name, profile_path="../../creds"
         )
 
         # Log into fidelity
@@ -793,7 +793,7 @@ def fidelity_holdings(fidelity_o: Brokerage, name: str, loop=None):
 
 
 def fidelity_transaction(
-    fidelity_o: Brokerage, name: str, orderObj: stockOrder, loop=None
+    fidelity_o: Brokerage, name: str, orderObj: StockOrder, loop=None
 ):
     """
     Using the Brokerage object, call FidelityAutomation.transaction() and process its' return

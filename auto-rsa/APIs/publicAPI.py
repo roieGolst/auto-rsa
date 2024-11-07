@@ -11,7 +11,7 @@ from helperAPI import (
     maskString,
     printAndDiscord,
     printHoldings,
-    stockOrder
+    StockOrder
 )
 
 
@@ -34,7 +34,7 @@ def public_init(PUBLIC_EXTERNAL=None, botObj=None, loop=None):
         name = f"Public {index + 1}"
         try:
             account = account.split(":")
-            pb = Public(filename=f"public{index + 1}.pkl", path="./creds/")
+            pb = Public(filename=f"public{index + 1}.pkl", path="../../creds/")
             try:
                 if botObj is None and loop is None:
                     # Login from CLI
@@ -108,7 +108,7 @@ def public_holdings(pbo: Brokerage, loop=None):
     printHoldings(pbo, loop)
 
 
-def public_transaction(pbo: Brokerage, orderObj: stockOrder, loop=None):
+def public_transaction(pbo: Brokerage, orderObj: StockOrder, loop=None):
     print()
     print("==============================")
     print("Public")

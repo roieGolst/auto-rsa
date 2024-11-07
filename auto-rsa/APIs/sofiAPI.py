@@ -15,12 +15,12 @@ from helperAPI import (
     maskString,
     printAndDiscord,
     printHoldings,
-    stockOrder,
+    StockOrder,
 )
 
 load_dotenv()
 
-COOKIES_PATH = "creds"
+COOKIES_PATH = "../../creds"
 # Get or create the event loop
 try:
     sofi_loop = asyncio.get_event_loop()
@@ -102,7 +102,7 @@ async def get_current_url(page, discord_loop):
 
 
 def sofi_run(
-    orderObj: stockOrder, command=None, botObj=None, loop=None, SOFI_EXTERNAL=None
+    orderObj: StockOrder, command=None, botObj=None, loop=None, SOFI_EXTERNAL=None
 ):
     print("Initializing SoFi process...")
     load_dotenv()
@@ -470,7 +470,7 @@ async def handle_2fa(page, account, name, botObj, discord_loop):
         )
 
 
-def sofi_transaction(browser, orderObj: stockOrder, discord_loop):
+def sofi_transaction(browser, orderObj: StockOrder, discord_loop):
     dry_mode = orderObj.get_dry()
     for stock in orderObj.get_stocks():
         if orderObj.get_action() == "buy":

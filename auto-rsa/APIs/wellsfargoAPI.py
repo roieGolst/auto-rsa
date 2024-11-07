@@ -25,7 +25,7 @@ from helperAPI import (
     killSeleniumDriver,
     printAndDiscord,
     printHoldings,
-    stockOrder,
+    StockOrder,
     type_slowly
 )
 
@@ -241,7 +241,7 @@ def wellsfargo_holdings(WELLSFARGO_o: Brokerage, loop=None):
         killSeleniumDriver(WELLSFARGO_o)
 
 
-def wellsfargo_transaction(WELLSFARGO_o: Brokerage, orderObj: stockOrder, loop=None):
+def wellsfargo_transaction(WELLSFARGO_o: Brokerage, orderObj: StockOrder, loop=None):
     print()
     print("==============================")
     print("WELLS FARGO")

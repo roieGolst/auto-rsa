@@ -10,7 +10,7 @@ from helperAPI import (
     getOTPCodeDiscord,
     printAndDiscord,
     printHoldings,
-    stockOrder
+    StockOrder
 )
 
 
@@ -32,7 +32,7 @@ def fennel_init(FENNEL_EXTERNAL=None, botObj=None, loop=None):
     for index, account in enumerate(FENNEL):
         name = f"Fennel {index + 1}"
         try:
-            fb = Fennel(filename=f"fennel{index + 1}.pkl", path="./creds/")
+            fb = Fennel(filename=f"fennel{index + 1}.pkl", path="../../creds/")
             try:
                 if botObj is None and loop is None:
                     # Login from CLI
@@ -110,7 +110,7 @@ def fennel_holdings(fbo: Brokerage, loop=None):
     printHoldings(fbo, loop, False)
 
 
-def fennel_transaction(fbo: Brokerage, orderObj: stockOrder, loop=None):
+def fennel_transaction(fbo: Brokerage, orderObj: StockOrder, loop=None):
     print()
     print("==============================")
     print("Fennel")

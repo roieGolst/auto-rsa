@@ -15,12 +15,12 @@ from helperAPI import (
     getOTPCodeDiscord,
     printAndDiscord,
     printHoldings,
-    stockOrder
+    StockOrder
 )
 
 
 def chase_run(
-    orderObj: stockOrder, command=None, botObj=None, loop=None, CHASE_EXTERNAL=None
+    orderObj: StockOrder, command=None, botObj=None, loop=None, CHASE_EXTERNAL=None
 ):
     # Initialize .env file
     load_dotenv()
@@ -99,7 +99,7 @@ def chase_init(account: str, index: int, headless=True, botObj=None, loop=None):
         ch_session = session.ChaseSession(
             title=f"chase_{index}",
             headless=headless,
-            profile_path="./creds",
+            profile_path="../../creds",
             debug=debug,
         )
         # Login to chase
@@ -202,7 +202,7 @@ def chase_holdings(chase_o: Brokerage, all_accounts: ch_account.AllAccount, loop
 def chase_transaction(
     chase_obj: Brokerage,
     all_accounts: ch_account.AllAccount,
-    orderObj: stockOrder,
+    orderObj: StockOrder,
     loop=None,
 ):
     """
@@ -211,7 +211,7 @@ def chase_transaction(
     Args:
         chase_obj (Brokerage): The brokerage class object related to the chase session.
         all_accounts (AllAccount): AllAccount object that holds account information.
-        orderObj (stockOrder): The order(s) to be executed.
+        orderObj (StockOrder): The order(s) to be executed.
         loop (AbstractEventLoop): The event loop to be used if present.
     Returns:
         None

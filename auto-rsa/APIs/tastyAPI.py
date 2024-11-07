@@ -15,7 +15,7 @@ from tastytrade.order import NewOrder, OrderAction, OrderTimeInForce, OrderType
 from tastytrade.streamer import DXLinkStreamer
 from tastytrade.utils import TastytradeError
 
-from helperAPI import Brokerage, maskString, printAndDiscord, printHoldings, stockOrder
+from helperAPI import Brokerage, maskString, printAndDiscord, printHoldings, StockOrder
 
 
 def order_setup(tt: Session, order_type, stock_price, stock, amount):
@@ -94,7 +94,7 @@ def tastytrade_holdings(tt_o: Brokerage, loop=None):
     printHoldings(tt_o, loop=loop)
 
 
-async def tastytrade_execute(tt_o: Brokerage, orderObj: stockOrder, loop=None):
+async def tastytrade_execute(tt_o: Brokerage, orderObj: StockOrder, loop=None):
     print()
     print("==============================")
     print("Tastytrade")
@@ -194,5 +194,5 @@ async def tastytrade_execute(tt_o: Brokerage, orderObj: stockOrder, loop=None):
                     continue
 
 
-def tastytrade_transaction(tt: Brokerage, orderObj: stockOrder, loop=None):
+def tastytrade_transaction(tt: Brokerage, orderObj: StockOrder, loop=None):
     asyncio.run(tastytrade_execute(tt_o=tt, orderObj=orderObj, loop=loop))

@@ -16,11 +16,11 @@ from helperAPI import (
     maskString,
     printAndDiscord,
     printHoldings,
-    stockOrder
+    StockOrder
 )
 
 
-def vanguard_run(orderObj: stockOrder, command=None, botObj=None, loop=None):
+def vanguard_run(orderObj: StockOrder, command=None, botObj=None, loop=None):
     # Initialize .env file
     load_dotenv()
     # Import Vanguard account
@@ -62,7 +62,7 @@ def vanguard_init(account, index, headless=True, botObj=None, loop=None):
         vg_session = session.VanguardSession(
             title=f"Vanguard_{index}",
             headless=headless,
-            profile_path="./creds",
+            profile_path="../../creds",
             debug=debug,
         )
         need_second = vg_session.login(account[0], account[1], account[2])
@@ -134,7 +134,7 @@ def vanguard_holdings(vanguard_o: Brokerage, loop=None):
     obj.close_browser()
 
 
-def vanguard_transaction(vanguard_o: Brokerage, orderObj: stockOrder, loop=None):
+def vanguard_transaction(vanguard_o: Brokerage, orderObj: StockOrder, loop=None):
     print()
     print("==============================")
     print("Vanguard")

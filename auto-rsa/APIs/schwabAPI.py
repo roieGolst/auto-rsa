@@ -8,7 +8,7 @@ from time import sleep
 from dotenv import load_dotenv
 from schwab_api import Schwab
 
-from helperAPI import Brokerage, maskString, printAndDiscord, printHoldings, stockOrder
+from helperAPI import Brokerage, maskString, printAndDiscord, printHoldings, StockOrder
 
 
 def schwab_init(SCHWAB_EXTERNAL=None):
@@ -81,7 +81,7 @@ def schwab_holdings(schwab_o: Brokerage, loop=None):
     printHoldings(schwab_o, loop)
 
 
-def schwab_transaction(schwab_o: Brokerage, orderObj: stockOrder, loop=None):
+def schwab_transaction(schwab_o: Brokerage, orderObj: StockOrder, loop=None):
     print()
     print("==============================")
     print("Schwab")
