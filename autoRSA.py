@@ -295,12 +295,12 @@ if __name__ == "__main__":
         DOCKER_MODE = DISCORD_BOT = True
     # If discord argument, run discord bot, no docker, no prompt
     elif sys.argv[1].lower() == "discord":
-        updater()
+        # updater()
         check_package_versions()
         print("Running Discord bot from command line")
         DISCORD_BOT = True
     else:  # If any other argument, run bot, no docker or discord bot
-        updater()
+        # updater()
         check_package_versions()
         print("Running bot from command line")
         print()
